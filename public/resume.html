@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Résumé</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./style/reset.css"/>
+        <link rel="stylesheet" href="./style/root.css"/>
+        <link rel="stylesheet" href="./style/resume.css"/>
+    </head>
+
+    <body>
+        <script src="./data/navbar.js"></script>
+
+        <embed id="resume-pdf" src="./images/resume.pdf" style="width:100%;" type="application/pdf" />
+
+        <script>
+            document.getElementById("resume-pdf").style.height = (window.innerHeight - 70).toString() + "px";
+        </script>
+
+        <!-- <button onclick="PrintResume();" id="print-button" class="resume-print-button">Download Résumé</button>
+
+        <div id="resume-container" class="resume-container">
+            <div class="resume-internal-container">
+                <div class="resume-title">Charles Engler</div>
+
+                <br/>
+
+                <a href="https://charlieengler.com">
+                    <div class="resume-undertitle">charlieengler.com</div>
+                </a>
+                <a id="email-link">
+                    <div id="email-text" class="resume-undertitle"></div>
+                </a>
+                <a id="phone-link">
+                    <div id="phone-text" class="resume-undertitle"></div>
+                </a>
+                <a href="https://github.com/charlieengler">
+                    <div class="resume-undertitle">Github: @charlieengler</div>
+                </a>
+
+                <br/>
+                <br/>
+
+                <div class="resume-subsection-title">OBJECTIVE</div>
+                <div class="resume-divider"></div>
+                <div class="resume-subsection-text">
+                    Computer science student looking to turn my passion for computer programming into a career by gaining meaningful experience in a post-secondary environment where I can both grow and contribute.
+                </div>
+
+                <br/>
+
+                <div class="resume-subsection-title">EDUCATION</div>
+                <div class="resume-divider"></div>
+
+                <div class="resume-list-title">WPI, Worcester, MA</div>
+                <div class="resume-list-description">(2026 - Present)</div>
+
+                <br/>
+
+                <div class="resume-stats">
+                        Computer Science Major with a Cybersecurity Focus
+                        <li>
+                            <div style="font-weight:bold">Classes:</div>
+                                Accelerated Intro to Program Design (CS 1102), Accelerated Object-Oriented Design Concepts (CS 2103), Systems Programming Concepts (CS 2303), Introduction to Machine Organization and Assembly (CS 2011)
+                        </li>
+                        <li>
+                            <div style="font-weight:bold">Awards:</div>
+                            Dean's List (Fall 2022, Spring 2023)
+                        </li>
+                </div>
+
+                <br/>
+
+                <div class="resume-list-title">Exeter High School, Exeter, NH</div>
+                <div class="resume-list-description">Graduted May, 2022</div>
+
+                <br/>
+
+                <div class="resume-stats">
+                    <ul>
+                        <li>GPA: 5.129</li>
+                        <li>Honor Roll Student</li>
+                        <li>
+                            Notable Classes Taken: 
+                            <ul style="list-style-type: circle;">
+                                <li>AP Chemistry</li>
+                                <li>Dual Enrollment Pre-Calculus and Calculus</li>
+                                <li>AP Language and Composition</li>
+                                <li>AP Literature and Composition</li>
+                                <li>AP US History</li>
+                                <li>AP US Government</li>
+                                <li>Law and Society</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <br/>
+
+                <div class="resume-subsection-title">ACHIEVEMENTS, HONORS, AND ACTIVITIES</div>
+                <div class="resume-divider"></div>
+
+                <div class="resume-list-title">Honors:</div> 
+
+                <br/>
+                <br/>
+
+                <div class="resume-stats">
+                    <ul>
+                        <li>WPI Dean's List, EHS National Honors Society, EHS High Honors achievement, AP Scholar with Distinction</li>
+                    </ul>
+                </div>
+
+                <br/>
+
+                <div class="resume-list-title">Extended Learning Opportunity (2020-2021):</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-stats">
+                    <ul>
+                        <li>Developed a website to provide students with a collection of academic-related tools to assist with day-to-day learning needs</li>
+                        <li>Presented website to a panel of teachers and administrators who determined that the scope of the initial proposal was met</li>
+                    </ul>
+                </div>
+
+                <br/>
+
+                <div class="resume-list-title">Activities:</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-stats">
+                    <ul>
+                        <li>Programming and deploying two websites throughout high school for students to use and enjoy</li>
+                        <li>University of New Hampshire Technology Camp</li>
+                        <li>Independently learning C/C++, Python, C#, PHP, HTML, CSS, JavaScript, and more programming languages</li>
+                        <li>Volunteer work for various National Honors Society events</li>
+                        <li>Running, fishing, skiing, hiking, swimming, camping</li>
+                    </ul>
+                </div>
+
+                <br/>
+
+                <div class="resume-subsection-title">WORK EXPERIENCE</div>
+                <div class="resume-divider"></div>
+
+                <div class="resume-list-title">Home Depot, North Hampton, NH</div>
+                <div class="resume-list-description">July 2022 - August 2023</div>
+                <div class="resume-list-title-undertext">Freight and receiving associate</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-list-title">Timberlane School District, Plaistow, NH</div>
+                <div class="resume-list-description">July 2022 - August 2022</div>
+                <div class="resume-list-title-undertext">IT Assistant</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-list-title">Riverwoods Retirement Community, Exeter, NH</div>
+                <div class="resume-list-description">September 2019 - February 2022</div>
+                <div class="resume-list-title-undertext">Dishwasher, server, waitstaff manager, assisted living server</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-list-title">George and Phillips Sporting Goods, Exeter, NH</div>
+                <div class="resume-list-description">October 2018 - May 2019</div>
+                <div class="resume-list-title-undertext">Salesperson, tennis racquet stringer, store website development</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-subsection-title">EXTRACURRICULAR ACTIVITIES</div>
+                <div class="resume-divider"></div>
+
+                <div class="resume-list-title">Computer Programming Languages</div>
+                <div class="resume-list-description"> </div>
+                <div class="resume-list-title-undertext">Learn programming languages to remain at the forefront of new technologies and to deepen understanding of older, yet still relevant, technologies</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-list-title">Website Development</div>
+                <div class="resume-list-description"> </div>
+                <div class="resume-list-title-undertext">Build websites for business startups, personal work, and practice</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-list-title">Hobby Electronics</div>
+                <div class="resume-list-description"> </div>
+                <div class="resume-list-title-undertext">Curiosity and propensity for hobby electronics development, mostly involving the Arduino platform</div>
+
+                <br/>
+                <br/>
+
+                <div class="resume-subsection-title">SKILLS AND PROFICIENCIES</div>
+                <div class="resume-divider"></div>
+
+                <table class="resume-table">
+                    <tr>
+                        <td>Google Drive Suite</td>
+                        <td>MS Word</td>
+                        <td>MS Outlook</td>
+                        <td>Web Page Design</td>
+                        <td>Adobe Photoshop</td>
+                    </tr>
+                    <tr>
+                        <td>Adobe Premiere Pro</td>
+                        <td>Adobe Illustrator</td>
+                        <td>JavaScript</td>
+                        <td>HTML and CSS</td>
+                        <td>PHP</td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>C#</td>
+                        <td>gdb</td>
+                        <td>C/C++</td>
+                        <td>Pseudocode & Computational Thinking</td>
+                    </tr>
+                </table>
+            </div>
+        </div> -->
+
+        <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+        <script>
+            setTimeout(() => {
+                document.getElementById("email-link").href = "mai" + "lto:" + "charlie" + "engler3" + "@g" + "mai" + "l.com";
+                document.getElementById("email-text").innerText = "charlie" + "engler3" + "@g" + "mai" + "l.com";
+                document.getElementById("phone-link").href = "te" + "l:" + "+16" + "03" + "58" + "33329";
+                document.getElementById("phone-text").innerText = "+1 (6" + "03)" + " 58" + "3-3329";
+            }, 300);
+
+            function PrintResume()
+            {
+                let printButton = document.getElementById("print-button");
+
+                printButton.innerHTML = "<div class='downloading'></div>";
+
+                var container = document.getElementById("resume-container");
+
+                html2canvas(container, { allowTaint: true }).then(canvas => {
+                    var link = document.createElement("a");
+                    document.body.appendChild(link);
+                    link.download = "charles_engler_resume.jpg";
+                    link.href = canvas.toDataURL();
+                    link.target = '_blank';
+                    link.click();
+
+                    printButton.innerHTML = "Print Résumé";
+                });
+            }
+        </script> -->
+    </body>
+</html>

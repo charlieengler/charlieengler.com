@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Me</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./style/reset.css"/>
+        <link rel="stylesheet" href="./style/root.css"/>
+        <link rel="stylesheet" href="./style/contact.css"/>
+    </head>
+
+    <body>
+        <script src="./data/navbar.js"></script>
+
+        <div class="contact-container">
+            <div class="contact-title">Personal Email:</div>
+            <a id="personal-email" class="contact-link"></a>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-title">School Email:</div>
+            <a id="school-email" class="contact-link"></a>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-title">Personal Phone:</div>
+            <a id="personal-phone" class="contact-link"></a>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-title">Github:</div>
+            <a href="https://github.com/charlieengler" class="contact-link">@charlieengler</a>
+        </div>
+    </body>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("personal-email").href = "mai" + "lto" + ":char" + "lieengler3" + "@" + "gmai" + "l" + ".com";
+            document.getElementById("personal-email").innerText = "char" + "lieengler3" + "@" + "gmai" + "l" + ".com";
+            document.getElementById("school-email").href = "mai" + "lto" + ":cbe" + "ngler" + "@" + "wpi." + "edu";
+            document.getElementById("school-email").innerText = "cbe" + "ngler" + "@" + "wpi." + "edu";
+            document.getElementById("personal-phone").href = "te" + "l:+1" + "60" + "35" + "83332" + "9";
+            document.getElementById("personal-phone").innerText = "+1 (" + "603" + ") 58" + "3-" + "3329";
+        }, 300);
+    </script>
+</html>

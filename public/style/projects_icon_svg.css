@@ -1,0 +1,11 @@
+.projects-svg-outline {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    stroke-width: 8px;
+}
+
+.projects-svg-cutout {
+    fill: #404040;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}

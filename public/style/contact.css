@@ -1,0 +1,42 @@
+.contact-container{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+    padding: 10px;
+    padding-bottom: 15px;
+
+    text-align: center;
+
+    background-color: var(--primary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+.contact-title{
+    margin-bottom: 10px;
+
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.contact-link{
+    font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+    .contact-container{
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-title{
+        font-size: min(4vw, 50px);
+    }
+
+    .contact-link{
+        font-size: min(3vw, 35px);
+    }
+}

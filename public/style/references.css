@@ -1,0 +1,254 @@
+.reference-contact-popup-container{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 100;
+
+    background-color:rgba(30, 30, 30, 0.95);
+
+    cursor: pointer;
+}
+
+.reference-contact-popup{
+    position: absolute;
+    width: 95%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 101;
+
+    background-color: var(--primary);
+    border-radius: 10px;
+}
+
+/* .reference-contact-popup-close{
+    display: none;
+    position: absolute;
+    width: 95%;
+    height: 60px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    padding: none;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--primary);
+
+    border-radius: 7px;
+    background-color: var(--error);
+
+    filter: var(--main-shadow);
+}
+
+    .reference-contact-popup-close:hover{
+        transform: translate(2px, -2px);
+
+        cursor: pointer;
+
+        filter: var(--hover-shadow);
+    }
+
+.reference-contact-popup-close-cross{
+    transform: translateY(-2px) scale(1.5, 1.5);
+
+    text-shadow: var(--text-shadow);
+}
+
+    .reference-contact-popup-close:hover .reference-contact-popup-close-cross{
+        text-shadow: var(--text-shadow-hover);
+    } */
+
+.reference-contact-name{
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+
+    text-align: center;
+    text-decoration: underline;
+    font-size: min(10vw, 45px);
+    font-weight: 600;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+.reference-contact-header{
+    display: block;
+    width: 100%;
+
+    text-align: center;
+    font-size: min(8vw, 35px);
+    font-weight: 500;
+}
+
+.reference-contact-link{
+    display: block;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    text-align: center;
+    font-size: min(7vw, 30px);
+    font-weight: 400;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+    
+    filter: var(--main-shadow);
+}
+
+.reference-container{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+    padding: 15px;
+
+    background-color: var(--primary);
+    border-radius: 10px;
+    
+    filter: var(--main-shadow);
+}
+
+.reference-name{
+    width: 100%;
+
+    text-align: center;
+    font-size: max(10vw, 40px);
+    font-weight: 500;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+.reference-position{
+    display: block;
+    width: 100%;
+    margin-top: 3vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+    font-size: max(6vw, 16px);
+    font-weight: 400;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+    .reference-position:hover{
+        cursor: pointer;
+    }
+
+.reference-relationship{
+    display: block;
+    width: 100%;
+    margin-top: 3vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+    font-size: max(6vw, 16px);
+    font-weight: 400;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+.reference-statement{
+    width: 100%;
+    margin-top: 3vw;
+    padding: 15px;
+
+    text-align: center;
+    font-size: max(5vw, 16px);
+    font-weight: 500;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+.reference-contact{
+    display: block;
+    width: 100%;
+    margin-top: 3vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+    font-size: max(8vw, 20px);
+    font-weight: 600;
+    color: var(--link-text);
+    text-decoration: underline;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+
+    filter: var(--main-shadow);
+}
+
+    .reference-contact:hover{
+        transform: translateY(-5px) scale(1.05, 1.05);
+
+        cursor: pointer;
+    }
+
+@media only screen and (min-width: 768px) {
+    .reference-container{
+        width: 27.5%;
+        display: inline-block;
+        margin: 0;
+        margin-top: 30px;
+        margin-left: calc(17.5% / 4);
+        padding: 20px;
+    }
+
+    .reference-name{
+        font-size: min(4.5vw, 70px);
+    }
+
+    .reference-position{
+        margin-top: 20px;
+
+        font-size: min(1.7vw, 40px);
+    }
+
+    .reference-relationship{
+        margin-top: 10px;
+
+        font-size: min(1.7vw, 40px);
+    }
+
+    .reference-statement{
+        margin-top: 10px;
+
+        font-size: min(1.7vw, 35px);
+    }
+
+    .reference-contact{
+        margin-top: 20px;
+
+        font-size: min(4.5vw, 70px);
+    }
+}

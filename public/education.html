@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Education</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+
+        <link rel="stylesheet" href="./style/reset.css"/>
+        <link rel="stylesheet" href="./style/root.css"/>
+        <link rel="stylesheet" href="./style/education.css"/>
+    </head>
+
+    <body>
+        <script src="./data/navbar.js"></script>
+
+        <div class="education-title">College</div>
+        <div class="education-divider"></div>
+        <div class="education-timeline-container">
+            <div id="college-timeline-years"><div class="education-timeline-year">2022</div><div class="education-timeline-year">2023</div><div class="education-timeline-year">2024</div><div class="education-timeline-year">2025</div><div class="education-timeline-year">2026</div></div>
+            <div id="college-timeline-brackets"><div class="education-timeline-bracket"></div><div class="education-timeline-bracket"></div><div class="education-timeline-bracket"></div><div class="education-timeline-bracket"></div><div class="education-timeline-bracket"></div></div>
+            
+            <div id="college-timeline" class="education-timeline">
+                <div id="college-progress" class="education-timeline-progress"></div>
+                <div id="college-course-duration" class="education-course-duration"></div>
+            </div>
+        
+            <button id="college-course-toggle" onclick="toggleCourses(this, 'college');" class="education-timeline-dropdown-button">Show Courses &#9662;</button>
+            <select id="college-sorting" onchange="changeSorting(this.value, 'college');" class="education-general-course-sorting">
+                <option value="all">All Courses</option>
+                <option value="notable">Notable Courses</option>
+                <option value="specific">Specific Type</option>
+            </select>
+            <select id="college-specific-sorting" onchange="changeSpecificSorting(this.value, 'college');" class="education-specific-course-sorting"></select>
+
+            <div id="college-courses" class="education-timeline-course-list"></div>
+            <div id="college-course-popup" class="course-popup">
+                <div class="course-popup-upbar"></div>
+                <div class="course-popup-sidebar"></div>
+                <div class="course-popup-upbar"></div>
+                <div class="course-popup-title">Example Course Name</div><button class="course-popup-close"><div class="course-popup-close-cross">&times;</div></button>
+                <div class="course-popup-description">
+                    <div class="course-popup-subtitle">Full Name:</div><div class="course-popup-subtext">N/A</div>
+                    <br/>
+                    <div class="course-popup-subtitle">Grade:</div><div class="course-popup-subtext">N/A</div>
+                    <br/>
+                    <div class="course-popup-subtitle">Start - End:</div><div class="course-popup-subtext">00/00/00 - 00/00/00</div>
+                    <br/>
+                    <div class="course-popup-subtitle">Term:</div><div class="course-popup-subtext">Summer Session II</div>
+                </div>
+            </div>
+        </div>
+
+        <script type="application/javascript" src="./data/courses.js"></script>
+        <script>
+            window.addEventListener("resize", () => {
+                window.location.reload();
+            });
+
+            /**
+             * Represents a school to display on the education tab
+             * @class
+             * @constructor
+             * @public
+             */
+            class School
+            {
+                /**
+                 * The constructor for the School class
+                 * @constructor
+                 * @param {string} id - The ID used to find the school in the courses.js file
+                 */
+                constructor(id)
+                {
+                    // Finds the school by ID in the courses.js file
+                    let currentSchool;
+                    for(let i = 0; i < courses["schools"].length; i++)
+                    {
+                        if(courses["schools"][i]["id"] == id)
+                        {
+                            currentSchool = courses["schools"][i];
+                        }
+                    }
+
+                    /**
+                     * id is the ID of the school from the courses.js file
+                     * @type {string}
+                     * @public
+                     */
+                    this.id = id;
+
+                    /**
+                     * startDate is the first day that the current school was attended
+                     * @type {Date}
+                     * @public
+                     */
+                    this.startDate = Date.parse(currentSchool["start-date"]);
+
+                    /**
+                     * endDate is the last day that the current school was attended
+                     * @type {Date}
+                     * @public
+                     */
+                    this.endDate = Date.parse(currentSchool["end-date"]);
+
+                    /**
+                     * courseList is an array of the courses that were taken at the school
+                     * @type {Course[]}
+                     * @public
+                     */
+                    this.courseList = currentSchool["course-list"];
+
+                    /**
+                     * timelineElement is the DOM element representing the current school's timeline
+                     * @type {HTMLElement}
+                     * @public
+                     */
+                    this.timelineElement = document.getElementById(id + "-timeline");
+
+                    // Calls the setup functions for the current school
+                    this.setTimeline();
+                    this.animateProgress();
+                    this.addCourses("");
+                }
+
+                /**
+                 * Places the proper years in their correct locations on the timeline for the current school
+                 */
+                setTimeline()
+                {
+                    const years = document.getElementById(this.id + "-timeline-years").childNodes;
+                    const brackets = document.getElementById(this.id + "-timeline-brackets").childNodes;
+
+                    const yearWidths = [];
+
+                    // The start and end dates from this instance parsed into milliseconds
+                    const parsedSchoolStart = this.startDate;
+                    const parsedSchoolEnd = this.endDate;
+
+                    const startEndGap = parsedSchoolEnd - parsedSchoolStart;
+
+                    // The start year width percentage is unique and calculated separately because the school year may have 
+                    //  started a fraction of the way into the calendar year. 
+                    const firstYearWidth = ((Date.parse(years[1].innerText) - parsedSchoolStart) / startEndGap) * 100;
+
+                    // The last year width percentage is unique because the school year may have ended before the calendar year was over. 
+                    const lastYearWidth = ((parsedSchoolEnd - Date.parse(years[years.length - 1].innerText)) / startEndGap) * 100;
+
+                    // The yearWidths array gets iterated through chronoligically by year, so the first year is the first to be pushed
+                    yearWidths.push(firstYearWidth);
+
+                    for(let i = 1; i < years.length - 1; i++)
+                    {
+                        // The year start is parsed into milliseconds from the year described by the text of the DOM element
+                        const yearStart = Date.parse(years[i].innerText);
+                        // The year end is parsed into milliseconds from the year described by the text of the DOM element
+                        const yearEnd = Date.parse(years[i + 1].innerText);
+
+                        const overallWidth = startEndGap - firstYearWidth - lastYearWidth;
+
+                        yearWidths.push(((yearEnd - yearStart) / overallWidth) * 100);
+                    }
+
+                    // The last year width is pushed last separately in order to maintain chronological ordering
+                    yearWidths.push(lastYearWidth);
+
+                    for(let i = 0; i < yearWidths.length; i++)
+                    {
+                        years[i].style.width = yearWidths[i].toString() + "%";
+                        brackets[i].style.width = "calc(" + yearWidths[i].toString() + "% - 10px)";
+                    }
+
+                    // This sets the sorting type back to all when the page loads so there isn't a discontinuity
+                    const sortingElement = document.getElementById(this.id + "-sorting");
+                    sortingElement.value = "all";
+                }
+
+                /**
+                 * Animates the progress bar on the timeline for the current school
+                 */
+                animateProgress()
+                {
+                    const progressElement = document.getElementById(this.id + "-progress");
+
+                    // The start and end dates from this instance parsed into milliseconds
+                    const parsedSchoolStart = this.startDate;
+                    const parsedSchoolEnd = this.endDate;
+
+                    // Calculate the progress throughout the school period by first determinging if the period has expired and using this value if
+                    //  it has, otherwise the difference between the current date and the beginning of the school period is used
+                    const progress = Date.now() > parsedSchoolEnd ? parsedSchoolEnd : Date.now() - parsedSchoolStart;
+
+                    const percentage = (progress / (parsedSchoolEnd - parsedSchoolStart)) * 100;
+
+                    progressElement.innerText = percentage.toPrecision(2) + "%";
+
+                    progressElement.animate([
+                        { width: "0%" },
+                        { width: percentage + "%" }
+                    ], {
+                        duration: 1700,
+                        iterations: 1,
+                        easing: "ease-in-out"
+                    }).addEventListener("finish", () => {
+                        // To make the end state of the animation permanent, the width is set by style at the end of the animation
+                        progressElement.style.width = percentage + "%";
+                    });
+                }
+
+                /**
+                 * Highlights the block of time in which a course occurs relative to the timeline for the current school
+                 * @param {int} courseStart - The start of the selected course in milliseconds
+                 * @param {int} courseEnd - The end of the selected course in milliseconds
+                 * @param {string} color - One of three options success (green), warning (orange), or error (red) representing the completion status of the current course
+                 */
+                showCourseDuration(courseStart, courseEnd, color)
+                {
+                    const courseDurationElement = document.getElementById(this.id + "-course-duration");
+
+                    // This instance's start and end dates are parsed into milliseconds
+                    const parsedSchoolStart = this.startDate;
+                    const parsedSchoolEnd = this.endDate;
+
+                    const startEndGap = parsedSchoolEnd - parsedSchoolStart;
+
+                    // The offset from the left of the timeline as a percentage
+                    const leftPercentage = ((courseStart - parsedSchoolStart) / startEndGap) * 100;
+                    // The offset from the beginning of the duration as a percentage
+                    const widthPercentage = ((courseEnd - courseStart) / startEndGap) * 100;
+
+                    courseDurationElement.style.left = leftPercentage.toString() + "%";
+                    courseDurationElement.style.width = widthPercentage.toString() + "%";
+
+                    // The border size is determined by the screen width
+                    const borderSize = window.innerWidth > 768 ? 4 : 2;
+
+                    courseDurationElement.style.border = borderSize.toString() + "px solid var(--" + color + ")";
+                }
+
+                /**
+                 * Removes the course duration element from the timeline of the current school
+                 */
+                hideCourseDuration()
+                {
+                    const courseDurationElement = document.getElementById(this.id + "-course-duration");
+
+                    courseDurationElement.style.border = "none";
+                }
+
+                /**
+                 * Adds the relevant courses for the current school below its timeline
+                 * @param {string} type - A filter for the type of course which can be used for displaying a certain focus (i.e. CS, Math, etc.)
+                 */
+                addCourses(type)
+                {
+                    // Refreshes the course list so that there isn't any overlap
+                    this.removeCourses();
+
+                    const coursesElement = document.getElementById(this.id + "-courses");
+
+                    // Filters the courses depending on which option from the dropdown is selected
+                    const currentCourseList = [];
+                    for(let i = 0; i < this.courseList.length; i++)
+                    {
+                        if(type.length > 0)
+                        {
+                            if(type == "notable")
+                            {
+                                if(this.courseList[i]["notable"] == true)
+                                    currentCourseList.push(this.courseList[i]);
+                            }
+                            else
+                            {
+                                if(this.courseList[i]["type"] == type)
+                                    currentCourseList.push(this.courseList[i]);
+                            }
+                        }
+                        else
+                        {
+                            currentCourseList.push(this.courseList[i]);
+                        }
+                    }
+
+                    const courseButtons = [];
+                    for(let i = 0; i < currentCourseList.length; i++)
+                    {
+                        const course = currentCourseList[i];
+
+                        const courseButton = document.createElement("button");
+                        courseButton.innerText = course["name"];
+                        courseButton.classList.add("education-course");
+
+                        const courseStart = Date.parse(course["start"]);
+                        const courseEnd = Date.parse(course["end"]);
+
+                        // Determines the color of the course depending on if it's completed, in progress, or not started
+                        let color = "error";
+                        if(Date.now() > courseEnd)
+                            color = "success";
+                        else if(Date.now() > courseStart && Date.now() < courseEnd)
+                            color = "warning";
+                        else if(Date.now() < courseStart)
+                            color = "error";
+
+                        courseButton.style.color = "var(--" + color + ")";
+                        courseButton.style.display = "none";
+
+                        // When the mouse hovers over a course, its time block is displayed on the timeline
+                        courseButton.onmouseover = () => {
+                            this.showCourseDuration(courseStart, courseEnd, color);
+                        };
+
+                        courseButton.onmouseleave = () => {
+                            this.hideCourseDuration();
+                        };
+
+                        courseButton.onclick = () => {
+                            this.showCoursePopup(course, color);
+                        };
+
+                        coursesElement.appendChild(courseButton);
+                        courseButtons.push(courseButton);
+                    }
+                }
+
+                /**
+                 * Removes all of the course buttons from below the current school's timeline
+                 */
+                removeCourses()
+                {
+                    // Just removes all buttons by deleting all children of the container element
+                    document.querySelectorAll(".education-course").forEach(child => child.remove());
+                }
+
+                /**
+                 * Animates the bar stemming from the course popup to the course duration element
+                 * @param {HTMLElement[]} upbars - The bars oriented vertically
+                 * @param {HTMLElement} sidebar - The bar oriented horizontally
+                 * @param {int} upOffset - The offset height in pixels that all bars should be moved in order to be inline with the top of the popup
+                 * @param {int} width - The width in pixels of the sidebar
+                 * @param {int} barThickness - The thickness in pixels of the bars
+                 * @param {string} direction - One of two options, "open" moves the bars from the popup to the duration element, "close" moves the bars from the duration element to the popup
+                 * @param {function} callback - The function that should be called after the bars are done animating
+                 */
+                animateBars(upbars, sidebar, upOffset, width, barThickness, direction, callback)
+                {
+                    // The animation time of the line
+                    const lineDuration = 700;
+
+                    const firstUpbarHeight = 10;
+                    const secondUpbarHeight = 35;
+                    // The starting position of the bars relative to the top of the popup
+                    const firstUpbarOffset = -upOffset - barThickness - firstUpbarHeight;
+
+                    const closeButton = document.getElementById(this.id + "-course-popup").querySelector(".course-popup-close");
+                    closeButton.disabled = true;
+
+                    // If displaying on mobile, there isn't a line, so the popup is immediately closed
+                    if(window.innerWidth < 768)
+                    {
+                        callback();
+                        return;
+                    }
+
+                    // When the line should be traveling from the popup to the time block on the timeline
+                    if(direction == "open")
+                    {
+                        setTimeout(() => {
+                            // A chain of animate calls using the finish callback to call the next stage of the animation
+                            upbars[1].animate([
+                                { height: "0", top: "0" },
+                                { height: secondUpbarHeight.toString() + "px", top: (-upOffset).toString() + "px" }
+                            ], {
+                                duration: lineDuration,
+                                iterations: 1,
+                                easing: "ease-in-out"
+                            }).addEventListener("finish", () => {
+                                upbars[1].style.height = secondUpbarHeight.toString() + "px";
+                                upbars[1].style.top = (-upOffset).toString() + "px";
+
+                                sidebar.animate([
+                                    { width: "0", left: "50%" },
+                                    { width: (width+4).toString() + "px", left: "calc(50% - " + (width/2).toString() + "px)" }
+                                ], {
+                                    duration: lineDuration,
+                                    iterations: 1,
+                                    easing: "ease-in-out"
+                                }).addEventListener("finish", () => {
+                                    sidebar.style.width = (width+4).toString() + "px";
+                                    sidebar.style.left = "calc(50% - " + (width/2).toString() + "px)";
+
+                                    upbars[0].animate([
+                                        { height: "0", top: (firstUpbarOffset+firstUpbarHeight).toString() + "px" },
+                                        { height: (firstUpbarHeight+barThickness).toString() + "px", top: firstUpbarOffset.toString() + "px" }
+                                    ], {
+                                        duration: lineDuration,
+                                        iterations: 1,
+                                        easing: "ease-in-out"
+                                    }).addEventListener("finish", () => {
+                                        upbars[0].style.height = (firstUpbarHeight+barThickness).toString() + "px";
+                                        upbars[0].style.top = firstUpbarOffset.toString() + "px";
+
+                                        closeButton.disabled = false;
+
+                                        callback();
+                                    });
+                                });
+                            });
+                        }, 500);
+                    }
+                    // When the line should be traveling from the time block on the timeline back to the popup
+                    else if(direction == "close")
+                    {
+                        upbars[0].style.height = "0";
+                        upbars[0].style.top = (firstUpbarOffset+firstUpbarHeight).toString() + "px";
+
+                        // Uses the same behavior as when the line is opening
+                        upbars[0].animate([
+                            { height: (firstUpbarHeight+barThickness).toString() + "px", top: firstUpbarOffset.toString() + "px" },
+                            { height: "0", top: (firstUpbarOffset+firstUpbarHeight).toString() + "px" }
+                        ], {
+                            duration: lineDuration,
+                            iterations: 1,
+                            easing: "ease-in-out"
+                        }).addEventListener("finish", () => {
+                            upbars[0].style.removeProperty("height");
+                            upbars[0].style.removeProperty("top");
+
+                            sidebar.style.width = "0";
+                            sidebar.style.left = "50%";
+
+                            sidebar.animate([
+                                { width: (width+4).toString() + "px", left: "calc(50% - " + (width/2).toString() + "px)" },
+                                { width: "0", left: "50%" }
+                            ], {
+                                duration: lineDuration,
+                                iterations: 1,
+                                easing: "ease-in-out"
+                            }).addEventListener("finish", () => {
+                                sidebar.style.removeProperty("width");
+                                sidebar.style.removeProperty("left");
+
+                                upbars[1].style.height = "0";
+                                upbars[1].style.top = "0";
+
+                                upbars[1].animate([
+                                    { height: secondUpbarHeight.toString() + "px", top: (-upOffset).toString() + "px" },
+                                    { height: "0", top: "0" }
+                                ], {
+                                    duration: lineDuration,
+                                    iterations: 1,
+                                    easing: "ease-in-out"
+                                }).addEventListener("finish", () => {
+                                    upbars[1].style.removeProperty("height");
+                                    upbars[1].style.removeProperty("top");
+
+                                    callback();
+                                });
+                            });
+                        });
+                    }
+                }
+
+                /**
+                 * Returns onclick, onmouseover, and onmouseleave behavior to the course buttons
+                 * @param {function[]} onClicks - An array of onclick functions for the course buttons
+                 * @param {function[]} mouseOvers - An array of onmouseover functions for the course buttons
+                 * @param {function[]} mouseLeaves - An array of onmouseleave functions for the course buttons
+                 */
+                restoreCourseButtons(onClicks, mouseOvers, mouseLeaves)
+                {
+                    // Disable the popup button to prevent animation from being run too many times
+                    const popupElement = document.getElementById(this.id + "-course-popup");
+                    popupElement.querySelector(".course-popup-close").disabled = true;
+
+                    const courseButtons = document.getElementById(this.id + "-courses").querySelectorAll(".education-course");
+
+                    // Restores all functionality to the course buttons
+                    for(let i = 0; i < courseButtons.length; i++)
+                    {
+                        courseButtons[i].onclick = onClicks[i];
+                        courseButtons[i].onmouseover = mouseOvers[i];
+                        courseButtons[i].onmouseleave = mouseLeaves[i];
+                    }
+                }
+
+                /**
+                 * Shows the course popup corresponding to the selected course
+                 * @param {course} course - The course corresponding to the selected button
+                 * @param {string} color - One of three options: success (green), warning (orange), or error (red) depending if the course is completed, in progress, or not started respectively
+                 */
+                showCoursePopup(course, color)
+                {
+                    const popupElement = document.getElementById(this.id + "-course-popup");
+
+                    popupElement.querySelector(".course-popup-close").disabled = true;
+                    popupElement.style.display = "block";
+                    popupElement.style.border = "4px solid var(--" + color + ")";
+
+                    popupElement.animate([
+                        { transform: "translateX(-50%) scale(0, 0)" },
+                        { transform: "translateX(-50%) scale(1, 1)" }
+                    ], {
+                        duration: 500,
+                        iterations: 1,
+                        easing: "ease-in-out"
+                    });
+
+                    const title = popupElement.querySelector(".course-popup-title");
+                    title.innerText = course["name"];
+                    const subtexts = popupElement.querySelectorAll(".course-popup-subtext");
+
+                    // Parses the starting date of the selected course
+                    const startDate = new Date(course["start"]);
+                    const startMonth = (startDate.getMonth() + 1).toString();
+                    const startDay = (startDate.getDate() + 1).toString();
+                    const startYear = startDate.getFullYear().toString().slice(2, 4);
+                    const finalStartDate = startMonth + "/" + startDay + "/" + startYear;
+
+                    // Parses the end date of the selected course
+                    const endDate = new Date(course["end"]);
+                    const endMonth = (endDate.getMonth() + 1).toString();
+                    const endDay = (endDate.getDate() + 1).toString();
+                    const endYear = endDate.getFullYear().toString().slice(2, 4);
+                    const finalEndDate = endMonth + "/" + endDay + "/" + endYear;
+
+                    subtexts[0].innerText = course["full-name"];
+                    subtexts[1].innerText = course["grade"];
+                    subtexts[2].innerText = finalStartDate + " - " + finalEndDate;
+                    subtexts[3].innerText = course["term"];
+
+                    // Shows the time block for the selected course on the timeline
+                    this.showCourseDuration(Date.parse(course["start"]), Date.parse(course["end"]), color);
+
+                    // These make up the line connecting the popup to the time block
+                    const sidebar = popupElement.querySelector(".course-popup-sidebar");
+                    const upbars = popupElement.querySelectorAll(".course-popup-upbar");
+                    upbars[0].style.backgroundColor = "var(--" + color + ")";
+                    upbars[1].style.backgroundColor = "var(--" + color + ")";
+                    sidebar.style.backgroundColor = "var(--" + color + ")";
+
+                    // In order for the bars to be displayed properly, they need context about their location relative to other elements
+                    const durationElement = document.getElementById(this.id + "-course-duration");
+                    const durationElementCenter = durationElement.getBoundingClientRect().x + durationElement.getBoundingClientRect().width/2;
+                    const width = (screen.width / 2) - durationElementCenter;
+                    const barThickness = 4;
+                    const upOffset = 36;
+
+                    upbars[0].style.left = "calc(50% - " + width.toString() + "px)";
+
+                    // Once the bars are properly oriented, they need to be animated into place
+                    this.animateBars(upbars, sidebar, upOffset, width, barThickness, "open", ()=>{
+                        popupElement.querySelector(".course-popup-close").disabled = false;
+                    });
+
+                    const collegeCourses = document.getElementById(this.id + "-courses").querySelectorAll(".education-course");
+
+                    const onClicks = [];
+                    const mouseOvers = [];
+                    const mouseLeaves = [];
+
+                    // While the popup is open, the user shouldn't be able to click any of the other course buttons, but their behavior should be preserved
+                    for(let i = 0; i < collegeCourses.length; i++)
+                    {
+                        onClicks.push(collegeCourses[i].onclick);
+                        collegeCourses[i].onclick = null;
+
+                        mouseOvers.push(collegeCourses[i].onmouseover);
+                        collegeCourses[i].onmouseover = null;
+
+                        mouseLeaves.push(collegeCourses[i].onmouseleave);
+                        collegeCourses[i].onmouseleave = null;
+                    }
+
+                    const closeButton = popupElement.querySelector(".course-popup-close");
+
+                    // The closeCallback function needs to be defined here because it needs context from this function in order to animate the popup
+                    function closeCallback()
+                    {
+                        popupElement.animate([
+                            { transform: "translateX(-50%) scale(1, 1)" },
+                            { transform: "translateX(-50%) scale(0, 0) "}
+                        ], {
+                            duration: 500,
+                            iterations: 1,
+                            easing: "ease-in-out"
+                        }).addEventListener("finish", () => {
+                            popupElement.style.display = "none";
+                        });
+                    }
+
+                    document.addEventListener("mousedown", () => {
+                        this.restoreCourseButtons(onClicks, mouseOvers, mouseLeaves);
+
+                        // When the close button is clicked, the bars should retract into the popup
+                        this.animateBars(upbars, sidebar, upOffset, width, barThickness, "close", closeCallback);
+                    }, { once: true });
+                }
+            }
+
+            const schools = [];
+            schools.push(new School("college"));
+
+            /**
+             * Finds a particular school from the courses.js file by ID
+             * @param {string} id - The ID of the school being searched for
+             */
+            function getSchoolByID(id)
+            {
+                for(let i = 0; i < schools.length; i++)
+                {
+                    if(schools[i].id == id)
+                    {
+                        return schools[i];
+                    }
+                }
+
+                return null;
+            }
+
+            /**
+             * Animates the course buttons under the timeline so that they're visible
+             * @param {HTMLElement[]} courses - The HTML DOM elements corresponding to the course buttons
+             * @param {int} duration - How long it should take for the buttons to fade in
+             * @param {string} id - The ID of the current school
+             */
+            function showCourses(courses, duration, id)
+            {
+                const sortingElement = document.getElementById(id + "-sorting");
+                sortingElement.style.display = "inline-block";
+                if(sortingElement.value == "specific")
+                {
+                    document.getElementById(id + "-specific-sorting").style.display = "inline-block";
+                }
+
+                // Fades in all of the course buttons individually for a cool looking animation
+                for(let i = 0; i < courses.length; i++)
+                {
+                    setTimeout(() => {
+                        courses[i].style.display = "inline";
+
+                        courses[i].animate([
+                            { opacity: 0 },
+                            { opacity: 1 }
+                        ], {
+                            duration: duration / courses.length,
+                            iterations: 1,
+                        });
+                    }, i * (duration / courses.length));
+                }
+            }
+
+            /**
+             * Animates the course buttons under the timeline so that they disappear
+             * @param {HTMLElement[]} courses - The HTML DOM elements corresponding to the course buttons
+             * @param {int} duration - How long it should take for the buttons to fade in
+             * @param {string} id - The ID of the current school
+             */
+            function hideCourses(courses, duration, id)
+            {
+                document.getElementById(id + "-sorting").style.display = "none";
+                document.getElementById(id + "-specific-sorting").style.display = "none";
+
+                // Fades out all of the course buttons individually for a cool looking animation
+                for(let i = courses.length - 1; i >= 0; i--)
+                {
+                    setTimeout(() => {
+                        courses[i].animate([
+                            { opacity: 1 },
+                            { opacity: 0 },
+                        ], {
+                            duration: duration / courses.length,
+                            iterations: 1,
+                        });
+
+                        courses[i].style.opacity = 0;
+                    }, i * (duration / courses.length));
+                }
+
+                // There was some weird flashing behavior with buttons that were supposed to be hidden, so I added this and now it works
+                setTimeout(() => {
+                    for(let i = courses.length - 1; i >= 0; i--)
+                    {
+                        courses[i].style.opacity = 1;
+                        courses[i].style.display = "none";
+                    }
+                }, duration);
+            }
+
+            /**
+             * Calls the showCourses or hideCourses functions and disables buttons when toggling between hiding or showing
+             * @param {HTMLElement} toggleButton - The button calling the toggleCourses function
+             * @param {string} id - The ID of the current school
+             */
+            function toggleCourses(toggleButton, id)
+            {
+                const duration = 1500;
+
+                const coursesContainer = document.getElementById(id + "-courses");
+                const courses = coursesContainer.children;
+
+                if(toggleButton.innerText.includes("Show"))
+                {
+                    toggleButton.innerText = "Hide Courses ▴";
+                    toggleButton.disabled = true;
+
+                    showCourses(courses, duration, id);
+
+                    setTimeout(() => { toggleButton.disabled = false; }, duration);
+                }
+                else
+                {
+                    document.getElementById(id + "-course-popup").querySelector(".course-popup-close").click();
+
+                    toggleButton.innerText = "Show Courses ▾";
+                    toggleButton.disabled = true;
+
+                    hideCourses(courses, duration, id);
+
+                    setTimeout(() => {
+                        toggleButton.disabled = false;
+                    }, duration);
+                }
+            }
+
+            const specificTypes = [];
+            /**
+             * Switches between the three sorting types: all, notable, and specific to display relevant courses under the timeline
+             * @param {string} value - The sorting type being selected
+             * @param {string} id - The ID of the current school
+             */
+            function changeSorting(value, id)
+            {
+                const courseButtons = [];
+                const specificSortingElement = document.getElementById(id + "-specific-sorting");
+                specificSortingElement.style.display = "none";
+
+                const currentSchool = getSchoolByID(id);
+
+                if(value == "all")
+                {
+                    currentSchool.addCourses("");
+                }
+                else if(value == "notable")
+                {
+                    currentSchool.addCourses("notable");
+                }
+                else if(value == "specific")
+                {
+                    // Ensures that the array of buttons pertaining to specific courses is empty prior to filling it
+                    if(specificTypes.findIndex(type => {return id in type;}) == -1)
+                    {
+                        const courseList = currentSchool.courseList;
+
+                        const types = [];
+                        types.push(courseList[0]["type"]);
+                        // Filters through all of the types listed by the courses and only adds it to the array of types if it's unique
+                        for(let i = 1; i < courseList.length; i++)
+                        {
+                            for(let j = 0; j < types.length; j++)
+                            {
+                                if(types.indexOf(courseList[i]["type"]) == -1)
+                                {
+                                    types.push(courseList[i]["type"]);
+                                }
+                            }
+                        }
+
+                        const newType = {};
+                        newType[id] = types;
+
+                        // Preserves the list of unique types for the currently selected id (i.e. "college") so that they don't have to be resorted
+                        specificTypes.push(newType);
+
+                        // Since the dropdown buttons don't already exist in this context, they're created for each unique type
+                        for(let i = 0; i < types.length; i++)
+                        {
+                            const typeOption = document.createElement("option");
+                            typeOption.value = types[i];
+                            typeOption.innerText = types[i];
+
+                            specificSortingElement.appendChild(typeOption);
+                        }
+                    }
+
+                    const types = specificTypes.find(type => {return id in type})[id];
+
+                    specificSortingElement.style.display = "inline-block";
+
+                    // The default type is the first in the list so that courses are displayed when the "Specific Type" option is selected
+                    currentSchool.addCourses(types[0]);
+                }
+
+                const coursesContainer = document.getElementById(id + "-courses");
+                const courses = coursesContainer.children;
+
+                const toggleButton = document.getElementById(id + "-course-toggle"); 
+
+                // In order to prevent weird hanging buttons, the course list needs to be unset then reset
+                if(toggleButton.innerText.includes("Hide"))
+                {
+                    this.hideCourses(courses, 0, id);
+                    this.showCourses(courses, 0, id);
+                }
+            }
+
+            /**
+             * Changes the types of classes selected by focus if the specific sorting option has been selected
+             * @param {string} value - The focus that is being selected
+             * @param {string} id - The ID of the current school
+             */
+            function changeSpecificSorting(value, id)
+            {
+                const currentSchool = getSchoolByID(id);
+
+                currentSchool.addCourses(value);
+
+                const coursesContainer = document.getElementById(id + "-courses");
+                const courses = coursesContainer.children;
+
+                const toggleButton = document.getElementById(id + "-course-toggle"); 
+
+                // In order to prevent weird hanging buttons, the course list needs to be unset then reset
+                if(toggleButton.innerText.includes("Hide"))
+                {
+                    this.hideCourses(courses, 0, id);
+                    this.showCourses(courses, 0, id);
+                }
+            }
+        </script>
+    </body>
+</html>

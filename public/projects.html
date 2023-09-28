@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Projects</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+
+        <link rel="stylesheet" href="./style/reset.css"/>
+        <link rel="stylesheet" href="./style/root.css"/>
+        <link rel="stylesheet" href="./style/projects.css"/>
+    </head>
+
+    <body>
+        <script src="./data/navbar.js"></script>
+
+        <div class="profile-divider"></div>
+
+        <div class="profile-container">
+            <img class="profile-picture" src="./images/projects/github-pfp.png"/>
+
+            <div class="profile-description">
+                <div class="profile-name">Charlie Engler</div>
+                <div class="profile-class">WPI Class of 2026</div>
+                <a href="https://github.com/charlieengler" target="_blank">
+                    <div class="profile-github"></div>
+                </a>
+            </div>
+        </div>
+
+        <br/>
+
+        <div onClick="displayFullscreen(null);" class="fullscreen-image-container">
+            <img class="fullscreen-image"/>
+        </div>
+
+        <div class="slideshow-container atlas-suite">
+            <div class="slide-title-divider"></div>
+
+            <a href="https://github.com/charlieengler/atlas-suite" target="_blank">
+                <div class="slide-title">Atlas Suite</div>
+            </a>
+
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-home.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-home.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-profile.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-profile.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-calculator.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-calculator.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-connect.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-connect.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-forums.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-forums.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-pomodoro.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-pomodoro.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/altas-suite/atlas-task-manager.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-task-manager.png');"/>
+            </div>
+
+
+            <div class="slide-image-buttons">
+                <button class="previous-image-button" onClick="showSlide('atlas-suite', -1);">BACK</button><button class="next-image-button" onClick="showSlide('atlas-suite', 1);">NEXT</button>
+            </div>
+
+            <div class="slide-description">
+                This was a small project that was originally entered into the Congressional App Challenge, but ultimately became my <a href='https://sites.google.com/sau16.org/elo?authuser=0' target='_blank'>Extended Learning Opportunity</a> at Exeter High School.
+            </div>
+
+            <br/>
+        </div>
+
+        <div class="slideshow-container shared-traits">
+            <div class="slide-title-divider"></div>
+
+            <a href="https://github.com/charlieengler/sharedtraits.com" target="_blank">
+                <div class="slide-title">Shared Traits</div>
+            </a>
+
+            <div class="slide">
+                <img src="./images/projects/shared-traits/shared-traits-home.png" onClick="displayFullscreen('./images/projects/shared-traits/shared-traits-home.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/shared-traits/shared-traits-login.png" onClick="displayFullscreen('./images/projects/shared-traits/shared-traits-login.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/shared-traits/shared-traits-question-adder.png" onClick="displayFullscreen('./images/projects/shared-traits/shared-traits-question-adder.png');"/>
+            </div>
+
+            <div class="slide-image-buttons">
+                <button class="previous-image-button" onClick="showSlide('shared-traits', -1);">BACK</button><button class="next-image-button" onClick="showSlide('shared-traits', 1);">NEXT</button>
+            </div>
+
+            <div class="slide-description">
+                I intended for this app to connect people with similar hobbies by using a system included in most dating apps. I had just finished implementing its basic functionality when I sidelined this project.
+            </div>
+
+            <br/>
+        </div>
+
+        <div class="slideshow-container image-classifier">
+            <div class="slide-title-divider"></div>
+
+            <a href="https://github.com/charlieengler/image-classifier" target="_blank">
+                <div class="slide-title">Image Classifier</div>
+            </a>
+
+            <div class="slide">
+                <img src="./images/projects/image-classifier/image-classifier-home.png" onClick="displayFullscreen('./images/projects/image-classifier/image-classifier-home.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/image-classifier/image-classifier-home-maximized.png" onClick="displayFullscreen('./images/projects/image-classifier/image-classifier-home-maximized.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/image-classifier/image-classifier-add.png" onClick="displayFullscreen('./images/projects/image-classifier/image-classifier-add.png');"/>
+            </div>
+            <div class="slide">
+                <img src="./images/projects/image-classifier/image-classifier-update.png" onClick="displayFullscreen('./images/projects/image-classifier/image-classifier-update.png');"/>
+            </div>
+
+            <div class="slide-image-buttons">
+                <button class="previous-image-button" onClick="showSlide('image-classifier', -1);">BACK</button><button class="next-image-button" onClick="showSlide('image-classifier', 1);">NEXT</button>
+            </div>
+
+            <div class="slide-description">
+                My basic, preliminary mockup image classifier was the first web development project that didn't use PHP and instead implemented the MERN JavaScript stack.
+            </div>
+
+            <br/>
+        </div>
+
+        <script>
+            let slideIndex = 0;
+            let isFullscreen = false;
+
+            /**
+             * Displays a sequential slide for a given project slideshow
+             * @param {string} currentSlideshow - The ID of the slideshow showing the image
+             * @param {int} numSlides - The number of slides to progress the slideshow by (i.e. 1 = one slide forward, -1 = one slide backward)
+             */
+            function showSlide(currentSlideshow, numSlides)
+            {
+                let allSlides = document.getElementsByClassName("slide");
+                let slides = [];
+                
+                // Checks the class names of each slide and only adds it to the list of applicable slides if it includes the currentSlideshow string
+                for(let i = 0; i < allSlides.length; i++)
+                {
+                    if(allSlides[i].parentElement.className.includes(currentSlideshow))
+                        slides.push(allSlides[i]);
+                }
+
+                slideIndex += numSlides;
+
+                // Checks to see if the slideIndex is outside of the maximum possible index or if it's less than zero
+                slideIndex = slideIndex >= slides.length ? 0 : slideIndex < 0 ? slides.length - 1 : slideIndex;
+
+                // Ensures that all other slides aren't being displayed
+                slides.forEach(slide => {
+                    slide.style.display = "none";
+                });
+
+                // Displays only the selected slide
+                slides[slideIndex].style.display = "block";
+            }
+
+            /**
+             * Toggles a selected image into full screen mode
+             * @param {string} image - The path to the image that should be displayed in fullscreen
+             */
+            function displayFullscreen(image)
+            {
+                // Minimizes the current fullscreen image if it exists
+                if(isFullscreen)
+                {
+                    document.getElementsByClassName("fullscreen-image-container")[0].style.display = "none";
+                }
+                else
+                {
+                    document.getElementsByClassName("fullscreen-image-container")[0].style.display = "block";
+
+                    document.getElementsByClassName("fullscreen-image")[0].src = image;
+                }
+
+                isFullscreen = !isFullscreen;
+            }
+
+            showSlide("atlas-suite", 0);
+            showSlide("shared-traits", 0);
+            showSlide("image-classifier", 0);
+        </script>
+    </body>
+</html>

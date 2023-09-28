@@ -1,0 +1,11 @@
+.resume-outline{
+    fill: white;
+    stroke: #231f20;
+    stroke-miterlimit: 10;
+    stroke-width: 8px;
+}
+
+.resume-line{
+    stroke-width: 8px;
+    stroke: #231f20;
+}

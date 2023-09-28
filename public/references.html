@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>References</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+
+        <link rel="stylesheet" href="./style/reset.css"/>
+        <link rel="stylesheet" href="./style/root.css"/>
+        <link rel="stylesheet" href="./style/references.css"/>
+    </head>
+
+    <body>
+        <script src="./data/navbar.js"></script>
+
+        <!-- <button id="close-button" onClick="togglePopup('')" class="reference-contact-popup-close"><div class="reference-contact-popup-close-cross">&times;</div></button> -->
+        <div onClick="togglePopup('')" id="popup-container" class="reference-contact-popup-container">
+            <div id="popup" class="reference-contact-popup">
+                <div id="name" class="reference-contact-name"></div>
+
+                <br/>
+
+                <div class="reference-contact-link">
+                    <div class="reference-contact-header">Email:</div>
+                    <a id="email"></a>
+                </div>
+                
+                <div class="reference-contact-link">
+                    <div class="reference-contact-header">Phone:</div>
+                    <a id="phone"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+        <div class="reference-container">
+            <div class="reference-name">John Doe</div>
+            <a class="reference-position">Position @ Company</a>
+            <div class="reference-relationship">Former Boss</div>
+            <div class="reference-statement">
+                “This is an example quote that does not exist and it's only here to give me professional credibility.”
+            </div>
+            <button onClick="togglePopup('John Doe')" class="reference-contact">CONTACT</button>
+        </div>
+
+        <script type="text/javascript">
+            var canClose = false;
+
+            // TODO: Closing the popup doesn't work on mobile
+            // Prevents the popup from being closed when clicking the link for the email or phone number
+            document.getElementById("popup").addEventListener("mouseover", () => {canClose = false;});
+            document.getElementById("popup").addEventListener("mouseleave", () => {canClose = true;});
+
+            // A list of all references indexed by name containing a pertinent email and phone number to reach them
+            const contactInfo = {
+                "John Doe": {email: "joh" + "ndoe" + "@e" + "mai" + "l.com", phone: "+" + "0 (" + "000)" + " 000" + "-0000"}
+            }
+
+            /**
+             * Toggles a popup with the contact information of a contact by name from the contactInfo object
+             * @param {string} name - The name of the contact used as an index in the contactInfo object
+             */
+            function togglePopup(name)
+            {
+                // const closeButtonElement = document.getElementById("close-button");
+                const popupContainerElement = document.getElementById("popup-container");
+                const popupElement = document.getElementById("popup");
+                const popupState = popupContainerElement.style.display;
+
+                const nameElement = document.getElementById("name");
+                const emailElement = document.getElementById("email");
+                const phoneElement = document.getElementById("phone");
+
+                // Closes the popup
+                if(popupState == "block")
+                {
+                    if(!canClose)
+                        return;
+
+                    popupElement.animate([
+                        { transform: "translate(-50%, -50%) scale(1, 1)" },
+                        { transform: "translate(-50%, -50%) scale(0, 0)" }
+                    ], {
+                        duration: 500,
+                        iterations: 1,
+                        easing: "ease-in-out"
+                    }).addEventListener("finish", () => {
+                        nameElement.innerText = "";
+                        emailElement.innerText = "";
+                        phoneElement.innerText = "";
+
+                        // closeButtonElement.style.display = "none";
+                        popupContainerElement.style.display = "none";
+                    });
+                }
+                // Opens the popup
+                else
+                {
+                    nameElement.innerText = name;
+                    emailElement.innerText = "Loading...";
+                    phoneElement.innerText = "Loading...";
+
+                    popupContainerElement.style.display = "block";
+
+                    popupElement.animate([
+                        { transform: "translate(-50%, -50%) scale(0, 0)" },
+                        { transform: "translate(-50%, -50%) scale(1, 1)" }
+                    ], {
+                        duration: 500,
+                        iterations: 1,
+                        easing: "ease-in-out"
+                    }).addEventListener("finish", () => {
+                        // closeButtonElement.style.display = "block";
+                    });
+
+                    // A timeout is used to display sensitive contact information so that web crawlers can't scrape it immediately upon loading the site
+                    // It also probably helps that it's behind a button, but better to be safe than sorry
+                    setTimeout(() => {
+                        emailElement.innerText = contactInfo[name]["email"];
+                        emailElement.href = "mailto:" + contactInfo[name]["email"];
+                        phoneElement.innerText = contactInfo[name]["phone"];
+                        phoneElement.href = "tel:" + contactInfo[name]["phone"];
+                    }, 300);
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,507 @@
+.terry{
+    display: none;
+}
+
+.title-container{
+    display: none;
+}
+
+.github-divider{
+    height: 20px;
+}
+
+.github-container{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    background-color: var(--secondary);
+    border-radius: 10px;
+    filter: var(--main-shadow);
+
+    text-align: center;
+}
+
+    .github-container:hover{
+        transform: translateY(-10px) scale(1.02, 1.02);
+
+        cursor: pointer;
+
+        filter: var(--hover-shadow);
+    }
+
+.github-text{
+    font-size: 7vw;
+    font-weight: 500;
+    text-decoration: underline;
+
+    color: var(--link-text);
+}
+
+.subsection-divider{
+    height: 20px;
+}
+
+/* TODO: Icon animations when scrolling over an element */
+.subsection{
+    width: 95%;
+    height: 85vw;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 20px;
+    display: inline-block;
+
+    background-color: var(--primary);
+    border-radius: 10px;
+    filter: var(--main-shadow);
+
+    transition: 0.5s;
+}
+
+    .subsection:hover{
+        transform: translateY(-10px) scale(1.02, 1.02);
+
+        cursor: pointer;
+        
+        filter: var(--hover-shadow);
+    }
+
+.subsection-showcase{
+    width: 85%;
+    height: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7.5%;
+
+    background-color: var(--secondary);
+    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    filter: var(--main-shadow);
+
+    transition: 0.4s;
+}
+
+    .subsection:hover .subsection-showcase{
+        transform: translateY(-10px);
+
+        cursor: pointer;
+        
+        filter: var(--hover-shadow);
+    }
+
+.subsection-base{
+    width: 85%;
+    height: 17.5%;
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: var(--tertiary);
+    border-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+    filter: var(--main-shadow);
+
+    text-align: center;
+
+    transition: 0.4s;
+}
+    .subsection:hover .subsection-base{
+        transform: translateY(-10px);
+
+        cursor: pointer;
+        
+        filter: var(--hover-shadow);
+    }
+
+.subsection-text{
+    font-size: 9vw;
+    font-weight: 400;
+
+    transition: 0.4s;
+}
+
+    .subsection:hover .subsection-text{
+        font-size: 9.5vw;
+    }
+
+.animated-icon{
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    transform: translateY(10%);
+    
+    transition: 0.3s;
+}
+
+    .subsection:hover .animated-icon{
+        transform: translateY(0);
+    }
+
+.animated-gradient{
+    background-image: linear-gradient(130deg, #575757, #949494, #575757);
+    background-size: 600% 100%;
+}
+
+    .subsection:hover .animated-gradient{
+        animation: gradient-slide 4s infinite ease-in-out;
+    }
+
+    @keyframes gradient-slide {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+.animated-line{
+    stroke-dasharray: 470;
+}
+
+    .subsection:hover .animated-line{
+        animation: line-dash 3s ease forwards infinite;
+    }
+
+    @keyframes line-dash{
+        5%{
+            stroke-dashoffset: 0;
+        }
+
+        45%{
+            stroke-dashoffset: 470;
+        }
+
+        55%{
+            stroke-dashoffset: 470;
+        }
+
+        95%{
+            stroke-dashoffset: 0;
+        }
+    }
+
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+    .github-divider{
+        height: 20px;
+    }
+
+    .title-container{
+        display: none;
+    }
+
+    .github-container{
+        width: min(780px, 60%);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        background-color: var(--secondary);
+        border-radius: min(0.75vw, 15px);
+        filter: var(--main-shadow);
+
+        text-align: center;
+    }
+
+        .github-container:hover{
+            transform: translateY(-10px) scale(1.05, 1.05);
+
+            cursor: pointer;
+
+            filter: var(--hover-shadow);
+        }
+
+    .github-text{
+        font-size: min(55px, 4.5vw);
+        font-weight: 600;
+        text-decoration: underline;
+
+        color: var(--link-text);
+    }
+    
+    .subsection-divider{
+        height: 20px;
+    }
+
+    .subsection{
+        width: min(500px, 25%);
+        height: min(400px, 20vw);
+        margin-left: max(calc(100% - 1500px) / 4, calc(25%/4));
+        margin-right: 0;
+        margin-top: 40px;
+        display: inline-block;
+
+        background-color: var(--primary);
+        border-radius: min(0.8vw, 20px);
+        filter: var(--main-shadow);
+
+        transition: 0.5s;
+    }
+
+        .subsection:hover{
+            transform: translateY(-10px) scale(1.05, 1.05);
+
+            cursor: pointer;
+            
+            filter: var(--hover-shadow);
+        }
+
+    .subsection-showcase{
+        width: 85%;
+        height: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 7.5%;
+
+        background-color: var(--secondary);
+        border-radius: 0;
+        border-top-left-radius: min(0.8vw, 20px);
+        border-top-right-radius: min(0.8vw, 20px);
+        filter: var(--main-shadow);
+
+        transition: 0.4s;
+    }
+
+        .subsection:hover .subsection-showcase{
+            transform: translateY(-10px);
+
+            cursor: pointer;
+            
+            filter: var(--hover-shadow);
+        }
+
+    .subsection-base{
+        width: 85%;
+        height: 17.5%;
+        margin-right: auto;
+        margin-left: auto;
+
+        background-color: var(--tertiary);
+        border-radius: 0;
+        border-bottom-left-radius: min(0.8vw, 20px);
+        border-bottom-right-radius: min(0.8vw, 20px);
+        border: none;
+        filter: var(--main-shadow);
+
+        text-align: center;
+
+        transition: 0.4s;
+    }
+        .subsection:hover .subsection-base{
+            transform: translateY(-10px);
+
+            cursor: pointer;
+            
+            filter: var(--hover-shadow);
+        }
+
+    .subsection-text{
+        font-size: min(2.5vw, 44px);
+        font-weight: 400;
+
+        transition: 0.4s;
+    }
+
+        .subsection:hover .subsection-text{
+            font-size: min(2.6vw, 46px);
+        }
+
+    .animated-icon{
+        width: 85%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        transform: translateY(10%);
+        
+        transition: 0.3s;
+    }
+
+        .subsection:hover .animated-icon{
+            transform: translateY(-10%);
+        }
+}
+
+@media only screen and (min-width: 1100px) {
+    .title-divider{
+        height: 100px;
+    }
+
+    .title-container{
+        display: block;
+        width: min(1400px, 95%);
+        margin-left: auto;
+        margin-right: auto;
+
+        background-color: var(--secondary);
+        border-radius: 15px;
+
+        text-align: center;
+
+        filter: var(--main-shadow);
+    }
+
+        .title-container:hover{
+            cursor: default;
+        }
+
+    .title{
+        font-size: min(150px, 10vw);
+        font-weight: 500;
+    }
+
+    .github-divider{
+        height: 100px;
+    }
+
+    .github-container{
+        width: min(780px, 60%);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        background-color: var(--secondary);
+        border-radius: min(0.75vw, 15px);
+        filter: var(--main-shadow);
+
+        text-align: center;
+    }
+
+        .github-container:hover{
+            transform: translateY(-10px) scale(1.05, 1.05);
+
+            cursor: pointer;
+
+            filter: var(--hover-shadow);
+        }
+
+    .github-text{
+        font-size: min(55px, 4.5vw);
+        font-weight: 600;
+        text-decoration: underline;
+
+        color: var(--link-text);
+    }
+
+    .subsection-divider{
+        height: 60px;
+    }
+
+    .subsection{
+        width: min(500px, 25%);
+        height: min(400px, 20vw);
+        margin-left: max(calc(100% - 1500px) / 4, calc(25%/4));
+        margin-right: 0;
+        margin-top: 40px;
+        display: inline-block;
+
+        background-color: var(--primary);
+        border-radius: min(0.8vw, 20px);
+        filter: var(--main-shadow);
+
+        transition: 0.5s;
+    }
+
+        .subsection:hover{
+            transform: translateY(-10px) scale(1.05, 1.05);
+
+            cursor: pointer;
+            
+            filter: var(--hover-shadow);
+        }
+
+    .subsection-showcase{
+        width: 85%;
+        height: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 7.5%;
+
+        background-color: var(--secondary);
+        border-radius: 0;
+        border-top-left-radius: min(0.8vw, 20px);
+        border-top-right-radius: min(0.8vw, 20px);
+        filter: var(--main-shadow);
+
+        transition: 0.4s;
+    }
+
+        .subsection:hover .subsection-showcase{
+            transform: translateY(-10px);
+
+            cursor: pointer;
+            
+            filter: var(--hover-shadow);
+        }
+
+    .subsection-base{
+        width: 85%;
+        height: 17.5%;
+        margin-right: auto;
+        margin-left: auto;
+
+        background-color: var(--tertiary);
+        border-radius: 0;
+        border-bottom-left-radius: min(0.8vw, 20px);
+        border-bottom-right-radius: min(0.8vw, 20px);
+        border: none;
+        filter: var(--main-shadow);
+
+        text-align: center;
+
+        transition: 0.4s;
+    }
+        .subsection:hover .subsection-base{
+            transform: translateY(-10px);
+
+            cursor: pointer;
+            
+            filter: var(--hover-shadow);
+        }
+
+    .subsection-text{
+        font-size: min(2.5vw, 44px);
+        font-weight: 400;
+
+        transition: 0.4s;
+    }
+
+        .subsection:hover .subsection-text{
+            font-size: min(2.6vw, 46px);
+        }
+
+    .animated-icon{
+        width: 85%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        transform: translateY(10%);
+        
+        transition: 0.3s;
+    }
+
+        .subsection:hover .animated-icon{
+            transform: translateY(-10%);
+        }
+}
+
+@media only screen and (width: 640px) and (height: 480px){
+    .quote{
+        font-family: Main-Italic;
+    }
+
+   .terry{
+        display: block;
+    }
+}

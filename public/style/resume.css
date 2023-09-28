@@ -1,0 +1,252 @@
+.resume-print-button{
+    display: none;
+}
+
+.resume-container{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: white;
+
+    filter: var(--main-shadow);
+}
+
+.resume-internal-container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    text-align: center;
+}
+
+.resume-title{
+    text-align: center;
+    font-size: 12vw;
+    font-weight: 500;
+}
+
+.resume-undertitle{
+    width: 100%;
+    display: inline-block;
+
+    text-align: center;
+    font-size: 5vw;
+}
+
+.resume-divider{
+    width: 100%;
+    margin-bottom: 10px;
+
+    border-bottom: 3px solid black;
+}
+
+.resume-subsection-title{
+    margin-top: 10px;
+
+    text-align: left;
+    font-size: 7vw;
+    font-weight: 500;
+}
+
+.resume-subsection-text{
+    margin-left: 10px;
+
+    text-align: left;
+    font-size: 5vw;
+    font-weight: 400;
+}
+
+.resume-list-title{
+    width: 100%;
+    float: left;
+
+    text-align: left;
+    font-size: 5vw;
+}
+
+.resume-list-description{
+    width: 100%;
+
+    text-align: right;
+    font-size: 3.5vw;
+    font-weight: 400;
+}
+
+.resume-stats{
+    text-align: left;
+    font-size: 4vw;
+    font-weight: 300;
+}
+
+ul{
+    padding-left: 20px;
+
+    list-style-type: disc;
+}
+
+.resume-list-title-undertext{
+    width: 100%;
+    float: left;
+    margin-left: 10px;
+
+    text-align: left;
+    font-style: italic;
+    font-size: 4vw;
+    font-weight: 300;
+}
+
+.resume-table{
+    width: 100%;
+
+    font-size: 2.5vw;
+}
+
+td{
+    padding: 5px;
+
+    vertical-align: middle;
+
+    border: 1px solid black;
+}
+
+@media only screen and (min-width: 768px) {
+    .resume-print-button{
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 20px;
+        padding: 10px;
+
+        text-align: center;
+        font-size: min(60px, 4vw);
+
+        background-color: var(--primary);
+        border-radius: 15px;
+
+        filter: var(--main-shadow);
+    }
+
+        .resume-print-button:hover{
+            transform: translate(5px, -5px);
+
+            cursor: pointer;
+
+            filter: var(--hover-shadow);
+        }
+
+    .resume-container{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+
+        background-color: white;
+
+        filter: var(--main-shadow);
+    }
+
+    .resume-internal-container{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding-top: 2%;
+        padding-bottom: 2%;
+
+        text-align: center;
+    }
+
+    .resume-title{
+        text-align: center;
+        font-size: max(3vw, 40px);
+        font-weight: 500;
+    }
+
+    .resume-undertitle{
+        width: 24%;
+        display: inline-block;
+
+        text-align: center;
+        font-size: 1.5vw;
+    }
+
+    .resume-divider{
+        width: 100%;
+        margin-bottom: 20px;
+
+        border-bottom: 3px solid black;
+    }
+
+    .resume-subsection-title{
+        margin-top: 20px;
+
+        text-align: left;
+        font-size: max(1.5vw, 25px);
+        font-weight: 500;
+    }
+
+    .resume-subsection-text{
+        margin-left: 10px;
+
+        text-align: left;
+        font-size: max(1vw, 15px);
+        font-weight: 400;
+    }
+
+    .resume-list-title{
+        width: auto;
+        float: left;
+
+        text-align: left;
+        font-size: max(1.25vw, 20px);
+    }
+
+    .resume-list-description{
+        width: auto;
+
+        text-align: right;
+        font-size: max(1vw, 12px);
+        font-weight: 400;
+    }
+
+    .resume-stats{
+        text-align: left;
+        font-size: max(1vw, 12px);
+        font-weight: 300;
+    }
+
+    ul{
+        padding-left: 30px;
+
+        list-style-type: disc;
+    }
+
+    .resume-list-title-undertext{
+        width: 100%;
+        float: left;
+        margin-left: 10px;
+
+        text-align: left;
+        font-style: italic;
+        font-size: max(1.15vw, 18px);
+        font-weight: 300;
+    }
+
+    .resume-table{
+        width: 100%;
+
+        font-size: max(1vw, 15px);
+    }
+
+    td{
+        padding: 5px;
+
+        vertical-align: middle;
+
+        border: 1px solid black;
+    }
+}
