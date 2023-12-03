@@ -77,7 +77,7 @@ const courses = {
                 },
                 {
                     "name": "CS 2303",
-                    "full-name": "Systmes Programming Concepts",
+                    "full-name": "Systems Programming Concepts",
                     "type": "Computer Science",
                     "term": "2023 Spring C Term",
                     "start": "10 January 2023 00:00:00 GMT",
@@ -152,7 +152,7 @@ const courses = {
                     "term": "2023 Fall A Term",
                     "start": "24 August 2023 00:00:00 GMT",
                     "end": "13 October 2023 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
@@ -162,7 +162,7 @@ const courses = {
                     "term": "2023 Fall A Term",
                     "start": "24 August 2023 00:00:00 GMT",
                     "end": "13 October 2023 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "B",
                     "notable": true
                 },
                 {
@@ -172,7 +172,7 @@ const courses = {
                     "term": "2023 Fall A Term",
                     "start": "24 August 2023 00:00:00 GMT",
                     "end": "13 October 2023 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
