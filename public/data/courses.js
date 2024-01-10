@@ -182,7 +182,7 @@ const courses = {
                     "term": "2023 Fall B Term",
                     "start": "23 October 2023 00:00:00 GMT",
                     "end": "15 December 2023 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "B",
                     "notable": false
                 },
                 {
@@ -192,7 +192,7 @@ const courses = {
                     "term": "2023 Fall B Term",
                     "start": "23 October 2023 00:00:00 GMT",
                     "end": "15 December 2023 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
@@ -202,7 +202,7 @@ const courses = {
                     "term": "2023 Fall B Term",
                     "start": "23 October 2023 00:00:00 GMT",
                     "end": "15 December 2023 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
@@ -214,16 +214,6 @@ const courses = {
                     "end": "1 March 2024 00:00:00 GMT",
                     "grade": "N/A",
                     "notable": true
-                },
-                {
-                    "name": "WPE 1012",
-                    "full-name": "Basketball",
-                    "type": "PE",
-                    "term": "2024 Spring C Term",
-                    "start": "10 January 2024 00:00:00 GMT",
-                    "end": "1 March 2024 00:00:00 GMT",
-                    "grade": "N/A",
-                    "notable": false
                 },
                 {
                     "name": "DS 1010",
