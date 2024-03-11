@@ -212,7 +212,7 @@ const courses = {
                     "term": "2024 Spring C Term",
                     "start": "10 January 2024 00:00:00 GMT",
                     "end": "1 March 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
@@ -222,7 +222,7 @@ const courses = {
                     "term": "2024 Spring C Term",
                     "start": "10 January 2024 00:00:00 GMT",
                     "end": "1 March 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
@@ -236,8 +236,8 @@ const courses = {
                     "notable": true
                 },
                 {
-                    "name": "PH 1120",
-                    "full-name": "General Physics-Electricity And Magnetism",
+                    "name": "ID 2050",
+                    "full-name": "ocial Science Research Methods for the Iceland Project Center IQP",
                     "type": "Physics",
                     "term": "2024 Spring D Term",
                     "start": "11 March 2024 00:00:00 GMT",
