@@ -574,6 +574,11 @@
 
                     const closeButton = popupElement.querySelector(".course-popup-close");
 
+                    // Disable course buttons when a popup is open
+                    const courseButtons = document.getElementsByClassName("education-course");
+                    for(let i = 0; i < courseButtons.length; i++)
+                        courseButtons[i].disabled = true;
+
                     // The closeCallback function needs to be defined here because it needs context from this function in order to animate the popup
                     function closeCallback()
                     {
@@ -586,6 +591,11 @@
                             easing: "ease-in-out"
                         }).addEventListener("finish", () => {
                             popupElement.style.display = "none";
+
+                            // Reenable course buttons after a popup is closed
+                            const courseButtons = document.getElementsByClassName("education-course");
+                            for(let i = 0; i < courseButtons.length; i++)
+                                courseButtons[i].disabled = false;
                         });
                     }
 
