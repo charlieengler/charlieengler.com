@@ -232,17 +232,17 @@ const courses = {
                     "term": "2024 Spring D Term",
                     "start": "11 March 2024 00:00:00 GMT",
                     "end": "1 May 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
                     "name": "ID 2050",
-                    "full-name": "ocial Science Research Methods for the Iceland Project Center IQP",
-                    "type": "Physics",
+                    "full-name": "Social Science Research Methods for the Iceland Project Center IQP",
+                    "type": "Humanities",
                     "term": "2024 Spring D Term",
                     "start": "11 March 2024 00:00:00 GMT",
                     "end": "1 May 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
@@ -252,9 +252,99 @@ const courses = {
                     "term": "2024 Spring D Term",
                     "start": "11 March 2024 00:00:00 GMT",
                     "end": "1 May 2024 00:00:00 GMT",
+                    "grade": "A",
+                    "notable": true
+                },
+                {
+                    "name": "IQP",
+                    "full-name": "Interactive Qualifying Project - Iceland Project Center",
+                    "type": "Humanities",
+                    "term": "2024 Fall A Term",
+                    "start": "8 August 2024 00:00:00 GMT",
+                    "end": "11 October 2024 00:00:00 GMT",
                     "grade": "N/A",
                     "notable": true
-                }
+                },
+                {
+                    "name": "CS 4341",
+                    "full-name": "Introduction to Artificial Intelligence",
+                    "type": "Computer Science",
+                    "term": "2024 Fall B Term",
+                    "start": "21 October 2024 00:00:00 GMT",
+                    "end": "13 December 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+                {
+                    "name": "CS 3733",
+                    "full-name": "Software Engineering",
+                    "type": "Computer Science",
+                    "term": "2024 Fall B Term",
+                    "start": "21 October 2024 00:00:00 GMT",
+                    "end": "13 December 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+                {
+                    "name": "WPE 1009",
+                    "full-name": "Walking for Fitness",
+                    "type": "PE",
+                    "term": "2024 Fall B Term",
+                    "start": "21 October 2024 00:00:00 GMT",
+                    "end": "13 December 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
+                {
+                    "name": "CS 3013",
+                    "full-name": "Operating Systems",
+                    "type": "Computer Science",
+                    "term": "2025 Spring C Term",
+                    "start": "15 January 2024 00:00:00 GMT",
+                    "end": "7 March 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+                {
+                    "name": "CS 4044",
+                    "full-name": "Tools and Techniques in Computer Network Security",
+                    "type": "Computer Science",
+                    "term": "2025 Spring C Term",
+                    "start": "15 January 2024 00:00:00 GMT",
+                    "end": "7 March 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+                {
+                    "name": "CS 4401",
+                    "full-name": "Software Security Engineering",
+                    "type": "Computer Science",
+                    "term": "2025 Spring D Term",
+                    "start": "17 March 2024 00:00:00 GMT",
+                    "end": "7 May 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+                {
+                    "name": "CS 4516",
+                    "full-name": "Advanced Computer Networks",
+                    "type": "Computer Science",
+                    "term": "2025 Spring D Term",
+                    "start": "17 March 2024 00:00:00 GMT",
+                    "end": "7 May 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+                {
+                    "name": "CS 4518",
+                    "full-name": "Mobile and Ubiquitous Computing",
+                    "type": "Computer Science",
+                    "term": "2025 Spring D Term",
+                    "start": "17 March 2024 00:00:00 GMT",
+                    "end": "7 May 2024 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
             ]
         }
     ]
