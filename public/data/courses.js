@@ -262,7 +262,7 @@ const courses = {
                     "term": "2024 Fall A Term",
                     "start": "8 August 2024 00:00:00 GMT",
                     "end": "11 October 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
