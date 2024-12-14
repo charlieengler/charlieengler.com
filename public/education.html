@@ -380,13 +380,13 @@
 
                                 sidebar.animate([
                                     { width: "0", left: "50%" },
-                                    { width: (width+4).toString() + "px", left: "calc(50% - " + (width/2).toString() + "px)" }
+                                    { width: (Math.abs(width)+4).toString() + "px", left: "calc(50% - " + (width/2).toString() + "px)" }
                                 ], {
                                     duration: lineDuration,
                                     iterations: 1,
                                     easing: "ease-in-out"
                                 }).addEventListener("finish", () => {
-                                    sidebar.style.width = (width+4).toString() + "px";
+                                    sidebar.style.width = (Math.abs(width)+4).toString() + "px";
                                     sidebar.style.left = "calc(50% - " + (width/2).toString() + "px)";
 
                                     upbars[0].animate([
@@ -430,7 +430,7 @@
                             sidebar.style.left = "50%";
 
                             sidebar.animate([
-                                { width: (width+4).toString() + "px", left: "calc(50% - " + (width/2).toString() + "px)" },
+                                { width: (Math.abs(width)+4).toString() + "px", left: "calc(50% - " + (width/2).toString() + "px)" },
                                 { width: "0", left: "50%" }
                             ], {
                                 duration: lineDuration,
