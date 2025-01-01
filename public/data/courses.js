@@ -272,7 +272,7 @@ const courses = {
                     "term": "2024 Fall B Term",
                     "start": "21 October 2024 00:00:00 GMT",
                     "end": "13 December 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
@@ -282,7 +282,7 @@ const courses = {
                     "term": "2024 Fall B Term",
                     "start": "21 October 2024 00:00:00 GMT",
                     "end": "13 December 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
@@ -292,7 +292,7 @@ const courses = {
                     "term": "2024 Fall B Term",
                     "start": "21 October 2024 00:00:00 GMT",
                     "end": "13 December 2024 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
