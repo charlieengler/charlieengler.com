@@ -302,7 +302,7 @@ const courses = {
                     "term": "2025 Spring C Term",
                     "start": "15 January 2025 00:00:00 GMT",
                     "end": "7 March 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
@@ -312,7 +312,7 @@ const courses = {
                     "term": "2025 Spring C Term",
                     "start": "15 January 2025 00:00:00 GMT",
                     "end": "7 March 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
