@@ -322,7 +322,7 @@ const courses = {
                     "term": "2025 Spring D Term",
                     "start": "17 March 2025 00:00:00 GMT",
                     "end": "7 May 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "B",
                     "notable": true
                 },
                 {
@@ -332,7 +332,7 @@ const courses = {
                     "term": "2025 Spring D Term",
                     "start": "17 March 2025 00:00:00 GMT",
                     "end": "7 May 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
                 {
@@ -342,7 +342,7 @@ const courses = {
                     "term": "2025 Spring D Term",
                     "start": "17 March 2025 00:00:00 GMT",
                     "end": "7 May 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
             ]
