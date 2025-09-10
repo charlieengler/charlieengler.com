@@ -15,6 +15,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 1102",
                     "full-name": "Accelerated Introduction To Program Design",
@@ -25,6 +26,7 @@ const courses = {
                     "grade": "B",
                     "notable": false
                 },
+
                 {
                     "name": "MA 1023",
                     "full-name": "Calculus III",
@@ -35,6 +37,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "FY 1101",
                     "full-name": "The Great Problems Seminar",
@@ -45,6 +48,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "MA 1024",
                     "full-name": "Calculus IV",
@@ -55,6 +59,7 @@ const courses = {
                     "grade": "B",
                     "notable": false
                 },
+
                 {
                     "name": "CS 2103",
                     "full-name": "Accelerated Object-Oriented Design Concepts",
@@ -65,6 +70,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "MA 2621",
                     "full-name": "Probability for Applications",
@@ -75,6 +81,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 2303",
                     "full-name": "Systems Programming Concepts",
@@ -85,6 +92,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "HI 2335",
                     "full-name": "Topics In The History Of American Science And Technology",
@@ -95,6 +103,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "HI 2315",
                     "full-name": "The Shaping Of Post-1920 America",
@@ -105,6 +114,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "MA 2611",
                     "full-name": "Applied Statistics I",
@@ -115,6 +125,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 2011",
                     "full-name": "Introduction To Machine Organization And Assembly Language",
@@ -125,6 +136,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 2022",
                     "full-name": "Discrete Mathematics",
@@ -135,6 +147,7 @@ const courses = {
                     "grade": "B",
                     "notable": false
                 },
+
                 {
                     "name": "PE 1099",
                     "full-name": "Healthy Alternative",
@@ -145,6 +158,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "MA 2071",
                     "full-name": "Matrices And Linear Algebra I",
@@ -155,6 +169,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "ECE 2010",
                     "full-name": "Introduction To Electrical And Computer Engineering",
@@ -165,6 +180,7 @@ const courses = {
                     "grade": "B",
                     "notable": true
                 },
+
                 {
                     "name": "PY 2719",
                     "full-name": "Philosophy of Science",
@@ -175,6 +191,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 3133",
                     "full-name": "Foundations Of Computer Science",
@@ -185,6 +202,7 @@ const courses = {
                     "grade": "B",
                     "notable": false
                 },
+
                 {
                     "name": "CS 3043",
                     "full-name": "Social Implications Of Information Processing",
@@ -195,6 +213,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 3516",
                     "full-name": "Computer Networks",
@@ -205,6 +224,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 3431",
                     "full-name": "Database Systems I",
@@ -215,6 +235,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "DS 1010",
                     "full-name": "Data Science I: Introduction To Data Science",
@@ -225,6 +246,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "ECE 2049",
                     "full-name": "Embedded Computing In Engineering Design",
@@ -235,6 +257,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "ID 2050",
                     "full-name": "Social Science Research Methods for the Iceland Project Center IQP",
@@ -245,6 +268,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 2223",
                     "full-name": "Algorithms",
@@ -255,6 +279,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "IQP",
                     "full-name": "Interactive Qualifying Project - Iceland Project Center",
@@ -265,6 +290,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 4341",
                     "full-name": "Introduction to Artificial Intelligence",
@@ -275,6 +301,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 3733",
                     "full-name": "Software Engineering",
@@ -285,6 +312,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "WPE 1009",
                     "full-name": "Walking for Fitness",
@@ -295,6 +323,7 @@ const courses = {
                     "grade": "A",
                     "notable": false
                 },
+
                 {
                     "name": "CS 3013",
                     "full-name": "Operating Systems",
@@ -305,6 +334,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 4044",
                     "full-name": "Tools and Techniques in Computer Network Security",
@@ -315,6 +345,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 4401",
                     "full-name": "Software Security Engineering",
@@ -325,6 +356,7 @@ const courses = {
                     "grade": "B",
                     "notable": true
                 },
+
                 {
                     "name": "CS 4516",
                     "full-name": "Advanced Computer Networks",
@@ -335,6 +367,7 @@ const courses = {
                     "grade": "A",
                     "notable": true
                 },
+
                 {
                     "name": "CS 4518",
                     "full-name": "Mobile and Ubiquitous Computing",
@@ -343,6 +376,94 @@ const courses = {
                     "start": "17 March 2025 00:00:00 GMT",
                     "end": "7 May 2025 00:00:00 GMT",
                     "grade": "A",
+                    "notable": false
+                },
+
+                {
+                    "name": "MQP",
+                    "full-name": "Major Qualifying Project",
+                    "type": "Computer Science",
+                    "term": "2025 A, B, and C Term",
+                    "start": "21 August 2025 00:00:00 GMT",
+                    "end": "6 March 2026 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+
+                {
+                    "name": "BB 1002",
+                    "full-name": "Environmental Biology",
+                    "type": "Basic Science",
+                    "term": "2025 Fall A Term",
+                    "start": "21 August 2025 00:00:00 GMT",
+                    "end": "10 October 2025 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
+
+                {
+                    "name": "HU 3900",
+                    "full-name": "American History Through Film Inquiry Seminar",
+                    "type": "Humanities",
+                    "term": "2025 Fall A Term",
+                    "start": "21 August 2025 00:00:00 GMT",
+                    "end": "10 October 2025 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
+
+                {
+                    "name": "WPE 1011",
+                    "full-name": "Touch Football",
+                    "type": "PE",
+                    "term": "2025 Fall A Term",
+                    "start": "21 August 2025 00:00:00 GMT",
+                    "end": "10 October 2025 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
+
+                {
+                    "name": "CS 4120",
+                    "full-name": "Analysis of Algorithms",
+                    "type": "Computer Science",
+                    "term": "2025 Fall B Term",
+                    "start": "20 October 2025 00:00:00 GMT",
+                    "end": "12 December 2025 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
+
+                {
+                    "name": "BB 1001",
+                    "full-name": "Introduction to Biology",
+                    "type": "Basic Science",
+                    "term": "2025 Fall B Term",
+                    "start": "20 October 2025 00:00:00 GMT",
+                    "end": "12 December 2025 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
+
+                {
+                    "name": "BB 1001",
+                    "full-name": "Introduction to Biology",
+                    "type": "Basic Science",
+                    "term": "2025 Fall B Term",
+                    "start": "20 October 2025 00:00:00 GMT",
+                    "end": "12 December 2025 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": false
+                },
+
+                {
+                    "name": "WPE 1009",
+                    "full-name": "Walking for Fitness",
+                    "type": "PE",
+                    "term": "2026 Spring C Term",
+                    "start": "14 January 2026 00:00:00 GMT",
+                    "end": "6 March 2026 00:00:00 GMT",
+                    "grade": "N/A",
                     "notable": false
                 },
             ]
