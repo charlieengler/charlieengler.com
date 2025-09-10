@@ -32,48 +32,88 @@
             <img class="fullscreen-image"/>
         </div>
 
-        <!-- <div class="slideshow-container atlas-suite">
+        <div class="slideshow-container mqp">
             <div class="slide-title-divider"></div>
 
-            <a href="https://github.com/charlieengler/atlas-suite" target="_blank">
-                <div class="slide-title">Atlas Suite</div>
-            </a>
+            <div class="slide-title">Secure Malloc Major Qualifying Project</div>
 
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-home.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-home.png');"/>
-            </div>
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-profile.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-profile.png');"/>
-            </div>
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-calculator.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-calculator.png');"/>
-            </div>
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-connect.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-connect.png');"/>
-            </div>
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-forums.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-forums.png');"/>
-            </div>
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-pomodoro.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-pomodoro.png');"/>
-            </div>
-            <div class="slide">
-                <img src="./images/projects/altas-suite/atlas-task-manager.png" onClick="displayFullscreen('./images/projects/altas-suite/atlas-task-manager.png');"/>
-            </div>
-
-
-            <div class="slide-image-buttons">
-                <button class="previous-image-button" onClick="showSlide('atlas-suite', -1);">BACK</button><button class="next-image-button" onClick="showSlide('atlas-suite', 1);">NEXT</button>
-            </div>
-
-            <div class="slide-description">
-                This was a small project that was originally entered into the Congressional App Challenge, but ultimately became my <a href='https://sites.google.com/sau16.org/elo?authuser=0' target='_blank'>Extended Learning Opportunity</a> at Exeter High School.
-            </div>
+            <ul class="slide-description" style="text-align: left;">
+                <li>Refining memory bounce allocator for use on the Linux kernel</li>
+                <li>Developing Linux kernel module compatible with a Google Pixel phone for bounce allocation</li>
+                <li>Interfacing with novel Memory Tagging Extension (MTE) hardware on a Google Pixel phone</li>
+                <li>Testing kernel code in QEMU for code coverage and test completion</li>
+                <li>Producing stable, kernel-ready code for potential adoption on future Android phones with MTE support</li>
+            </ul>
 
             <br/>
         </div>
 
-        <div class="slideshow-container shared-traits">
+        <div class="slideshow-container software-security-engineering">
+            <div class="slide-title-divider"></div>
+
+            <div class="slide-title">Software Security Engineering</div>
+
+            <ul class="slide-description" style="text-align: left;">
+                <li>Understood stack-based, format string, and heap-based buffer overflow attacks</li>
+                <li>Exploited security features, such as canaries, NX stack, PIE, ASLR, and RELRO</li>
+                <li>Attacked binaries and servers running binaries to obtain a shell</li>
+                <li>Explored advanced binary exploitation with consideration of low-level optimizations and features</li>
+            </ul>
+
+            <br/>
+        </div>
+
+        <div class="slideshow-container operating-systems-cpu-raytracer">
+            <div class="slide-title-divider"></div>
+
+            <a href="https://github.com/charlieengler/multithreaded-raytracer-cs3013">
+                <div class="slide-title">Operating Systems CPU Raytracer</div>
+            </a>
+
+            <ul class="slide-description" style="text-align: left;">
+                <li>Produced multithreaded CPU raytracer with 20x efficiency compared to single threaded</li>
+                <li>Parallelized physics, rendering, and file saving</li>
+                <li>Implemented semaphores, barriers, and critical region management to optimize code execution</li>
+            </ul>
+
+            <br/>
+        </div>
+
+        <div class="slideshow-container operating-systems-paging-sim">
+            <div class="slide-title-divider"></div>
+
+            <a href="https://github.com/charlieengler/paging-simulator-cs3013">
+                <div class="slide-title">Operating Systems Paging Simulator</div>
+            </a>
+
+            <ul class="slide-description" style="text-align: left;">
+                <li>Developed virtual memory paging simulation with complete test coverage</li>
+                <li>Simulated page tables in a 64 byte address space with 128 bytes of virtual memory</li>
+                <li>Handled multiple processes with separate pages and page tables</li>
+                <li>Swapped pages and page tables between physical memory and swap files</li>
+            </ul>
+
+            <br/>
+        </div>
+
+        <div class="slideshow-container iqp">
+            <div class="slide-title-divider"></div>
+
+            <a href="https://wpi.primo.exlibrisgroup.com/permalink/01WPI_INST/dbokq8/alma9937356322804746">
+                <div class="slide-title">Interactive Qualifying Project</div>
+            </a>
+
+            <ul class="slide-description" style="text-align: left;">
+                <li>Collaborated with a team of four other students</li>
+                <li>Analyzed barriers to obstructive sleep apnea diagnosis and awareness</li>
+                <li>Adapted to a work and study environment separate from Computer Science</li>
+                <li>Spearheaded a proposal for an awareness campaign to be run by healthcare professionals</li>
+            </ul>
+
+            <br/>
+        </div>
+
+        <!-- <div class="slideshow-container shared-traits">
             <div class="slide-title-divider"></div>
 
             <a href="https://github.com/charlieengler/sharedtraits.com" target="_blank">
@@ -188,9 +228,9 @@
                 isFullscreen = !isFullscreen;
             }
 
-            showSlide("atlas-suite", 0);
-            showSlide("shared-traits", 0);
-            showSlide("image-classifier", 0);
+            // showSlide("atlas-suite", 0);
+            // showSlide("shared-traits", 0);
+            // showSlide("image-classifier", 0);
         </script>
     </body>
 </html>

@@ -74,6 +74,8 @@
     margin-right: 2.5%;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: inline-block;
 
     background-color: var(--primary);
@@ -245,7 +247,7 @@
         }
 
     .profile-github::after{
-        content: "https://github.com/charlieengler3";
+        content: "https://github.com/charlieengler";
     }
 
     .fullscreen-image-container{
@@ -288,7 +290,6 @@
     }
 
     .slide-title{
-        width: min(60%, 800px);
         margin-left: auto;
         margin-right: auto;
         padding-top: 10px;
@@ -393,14 +394,16 @@
 
     .slide-description{
         width: 95%;
+        line-height: 150%;
         margin-left: auto;
         margin-right: auto;
-        padding: 10px;
         margin-top: 2%;
+        padding: 40px;
 
-        text-align: center;
         font-size: min(3vw, 30px);
         font-weight: 350;
+
+        list-style-type: disc;
 
         background-color: var(--secondary);
         border-radius: 10px;
