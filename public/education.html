@@ -708,6 +708,9 @@
             {
                 const duration = 1500;
 
+                changeSorting("notable", id);
+                document.getElementById("college-sorting").value = "notable";
+
                 const coursesContainer = document.getElementById(id + "-courses");
                 const courses = coursesContainer.children;
 

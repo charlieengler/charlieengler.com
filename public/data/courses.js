@@ -68,7 +68,7 @@ const courses = {
                     "start": "24 October 2022 00:00:00 GMT",
                     "end": "16 December 2022 00:00:00 GMT",
                     "grade": "A",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
@@ -134,7 +134,7 @@ const courses = {
                     "start": "13 March 2023 00:00:00 GMT",
                     "end": "3 May 2023 00:00:00 GMT",
                     "grade": "A",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
@@ -178,7 +178,7 @@ const courses = {
                     "start": "24 August 2023 00:00:00 GMT",
                     "end": "13 October 2023 00:00:00 GMT",
                     "grade": "B",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
@@ -222,7 +222,7 @@ const courses = {
                     "start": "23 October 2023 00:00:00 GMT",
                     "end": "15 December 2023 00:00:00 GMT",
                     "grade": "A",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
@@ -233,7 +233,7 @@ const courses = {
                     "start": "10 January 2024 00:00:00 GMT",
                     "end": "1 March 2024 00:00:00 GMT",
                     "grade": "A",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
@@ -299,7 +299,7 @@ const courses = {
                     "start": "21 October 2024 00:00:00 GMT",
                     "end": "13 December 2024 00:00:00 GMT",
                     "grade": "A",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
@@ -343,7 +343,7 @@ const courses = {
                     "start": "15 January 2025 00:00:00 GMT",
                     "end": "7 March 2025 00:00:00 GMT",
                     "grade": "A",
-                    "notable": true
+                    "notable": false
                 },
 
                 {
