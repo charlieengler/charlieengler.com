@@ -386,7 +386,7 @@ const courses = {
                     "term": "2025 A, B, and C Term",
                     "start": "21 August 2025 00:00:00 GMT",
                     "end": "6 March 2026 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
 
@@ -397,7 +397,7 @@ const courses = {
                     "term": "2025 Fall A Term",
                     "start": "21 August 2025 00:00:00 GMT",
                     "end": "10 October 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
 
@@ -408,7 +408,7 @@ const courses = {
                     "term": "2025 Fall A Term",
                     "start": "21 August 2025 00:00:00 GMT",
                     "end": "10 October 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
 
@@ -419,7 +419,7 @@ const courses = {
                     "term": "2025 Fall A Term",
                     "start": "21 August 2025 00:00:00 GMT",
                     "end": "10 October 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
 
@@ -432,17 +432,6 @@ const courses = {
                     "end": "12 December 2025 00:00:00 GMT",
                     "grade": "N/A",
                     "notable": true
-                },
-
-                {
-                    "name": "BB 1001",
-                    "full-name": "Introduction to Biology",
-                    "type": "Basic Science",
-                    "term": "2025 Fall B Term",
-                    "start": "20 October 2025 00:00:00 GMT",
-                    "end": "12 December 2025 00:00:00 GMT",
-                    "grade": "N/A",
-                    "notable": false
                 },
 
                 {
