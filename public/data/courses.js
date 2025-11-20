@@ -455,6 +455,16 @@ const courses = {
                     "grade": "N/A",
                     "notable": false
                 },
+                {
+                    "name": "CS 571",
+                    "full-name": "Case Studies in Computer Security",
+                    "type": "Computer Science",
+                    "term": "2026 Spring Semester",
+                    "start": "14 January 2026 00:00:00 GMT",
+                    "end": "6 May 2026 00:00:00 GMT",
+                    "grade": "N/A",
+                    "notable": true
+                },
             ]
         }
     ]
