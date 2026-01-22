@@ -430,7 +430,7 @@ const courses = {
                     "term": "2025 Fall B Term",
                     "start": "20 October 2025 00:00:00 GMT",
                     "end": "12 December 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
 
@@ -441,7 +441,7 @@ const courses = {
                     "term": "2025 Fall B Term",
                     "start": "20 October 2025 00:00:00 GMT",
                     "end": "12 December 2025 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
 
