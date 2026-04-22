@@ -452,7 +452,7 @@ const courses = {
                     "term": "2026 Spring C Term",
                     "start": "14 January 2026 00:00:00 GMT",
                     "end": "6 March 2026 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": false
                 },
                 {
@@ -462,7 +462,7 @@ const courses = {
                     "term": "2026 Spring Semester",
                     "start": "14 January 2026 00:00:00 GMT",
                     "end": "6 May 2026 00:00:00 GMT",
-                    "grade": "N/A",
+                    "grade": "A",
                     "notable": true
                 },
             ]
